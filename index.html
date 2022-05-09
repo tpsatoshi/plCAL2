@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang = "ja">
+<head>
+<title>フィルム重量計算</title>
+
+<script type="text/javascript" >
+
+function keisan(){
+
+  var wid = document.form1.wi1.value;
+  var wth1 = document.form1.goods1.options[document.form1.goods1.selectedIndex].value;
+  var thi1 = document.form1.th_1.value;
+  var wth2 = document.form1.goods2.options[document.form1.goods2.selectedIndex].value;
+  var thi2 = document.form1.th_2.value;
+  var wth3 = document.form1.goods3.options[document.form1.goods3.selectedIndex].value;
+  var thi3 = document.form1.th_3.value;
+  var wth4 = document.form1.goods4.options[document.form1.goods4.selectedIndex].value;
+  var thi4 = document.form1.th_4.value;
+  var wth5 = document.form1.goods5.options[document.form1.goods5.selectedIndex].value;
+  var thi5 = document.form1.th_5.value;
+  var thi6 = document.form1.th_6.value;
+
+
+
+  // 各層を計算
+  var total1 = Number(wth1) * Number(thi1) * Number(wid)/1000;
+  document.form1.ft1.value = total1; // 合計を表示
+  var total2 = Number(wth2) * Number(thi2) * Number(wid)/1000;
+  document.form1.ft2.value = total2; // 合計を表示
+  var total3 = Number(wth3) * Number(thi3) * Number(wid)/1000;
+  document.form1.ft3.value = total3; // 合計を表示
+  var total4 = Number(wth4) * Number(thi4) * Number(wid)/1000;
+  document.form1.ft4.value = total4; // 合計を表示
+  var total5 = Number(wth5) * Number(thi5) * Number(wid)/1000;
+  document.form1.ft5.value = total5; // 合計を表示
+
+  var all = (Number(wth1) * Number(thi2)+Number(wth2) * Number(thi2)+Number(wth3) * Number(thi3)+Number(wth4) * Number(thi4)+Number(wth5) * Number(thi5)) * Number(wid)/1000;
+  document.form1.ft6.value = all; // 合計を表示
+
+  var pitch = (Number(wth1) * Number(thi2)+Number(wth2) * Number(thi2)+Number(wth3) * Number(thi3)+Number(wth4) * Number(thi4)+Number(wth5) * Number(thi5)) * Number(wid)/1000*Number(thi6)/1000;
+  document.form1.ft7.value = pitch;
+
+}
+
+
+</script> 
+
+</head>
+<body>
+
+<table>
+<th>軟包装重量計算</th></br>
+<tr>※比重暫定のため概算値</tr></br>
+</br>
+</br>
+</table>
+
+<form action="#" name="form1">
+
+<table>
+<tr>
+<th>項目</th>
+<th>入力・選択</th>
+</tr></br>
+<tr>
+<td>製品幅(mm)</td>
+<td><input type="id" class="box" name="wi1" onChange="keisan()"></td>
+<td>mm</td>
+</tr>
+<td>1層目材質比重</td>
+<td><select name="goods1" onChange="keisan()">
+<option value="0">区分を選択してください</option>
+<option value="1.38">PET系(1.38)</option>
+<option value="0.9">OPP系(0.9)</option>
+<option value="1.13">ナイロン系(1.13)</option>
+<option value="0.89">CPP系(0.89)</option>
+<option value="0.92">PE系(0.92)</option>
+<option value="2.7">アルミ泊(2.7)</option>
+<option value="1.1">ビニロン系(1.1)</option>
+<option value="1.0">純白ﾛｰﾙ(厚みにg/㎡入力)(1.0)</option>
+</select></td>
+</tr>
+<tr>
+<td>1層目厚み(μ)</td>
+<td><input type="id" class="box" name="th_1" onChange="keisan()"></td>
+<td>μ</td>
+<td>補足</td>
+<td alig="right"><strong>1層目重量(ピッチ1mあたり)</strong></td>
+<td><output type="text" name="ft1" size="8" value="0"></td>
+<td>g</td>
+</tr>
+
+<td>2層目材質比重</td>
+<td><select name="goods2" onChange="keisan()">
+<option value="0">区分を選択してください</option>
+<option value="1.38">PET系(1.38)</option>
+<option value="0.9">OPP系(0.9)</option>
+<option value="1.13">ナイロン系(1.13)</option>
+<option value="0.89">CPP系(0.89)</option>
+<option value="0.92">PE系(0.92)</option>
+<option value="2.7">アルミ泊(2.7)</option>
+<option value="1.1">ビニロン系(1.1)</option>
+<option value="1.0">純白ﾛｰﾙ(厚みにg/㎡入力)(1.0)</option>
+</select></td>
+</tr>
+<tr>
+<td>2層目厚み(μ)</td>
+<td><input type="id" class="box" name="th_2" onChange="keisan()"></td>
+<td>μ</td>
+<td>補足</td>
+<td alig="right"><strong>2層目重量(ピッチ1mあたり)</strong></td>
+<td><output type="text" name="ft2" size="8" value="0"></td>
+<td>g</td>
+</tr>
+
+
+<td>3層目材質比重</td>
+<td><select name="goods3" onChange="keisan()">
+<option value="0">区分を選択してください</option>
+<option value="1.38">PET系(1.38)</option>
+<option value="0.9">OPP系(0.9)</option>
+<option value="1.13">ナイロン系(1.13)</option>
+<option value="0.89">CPP系(0.89)</option>
+<option value="0.92">PE系(0.92)</option>
+<option value="2.7">アルミ泊(2.7)</option>
+<option value="1.1">ビニロン系(1.1)</option>
+<option value="1.0">純白ﾛｰﾙ(厚みにg/㎡入力)(1.0)</option>
+</select></td>
+</tr>
+<tr>
+<td>3層目厚み(μ)</td>
+<td><input type="id" class="box" name="th_3" onChange="keisan()"></td>
+<td>μ</td>
+<td>補足</td>
+<td alig="right"><strong>3層目重量(ピッチ1mあたり)</strong></td>
+<td><output type="text" name="ft3" size="8" value="0"></td>
+<td>g</td>
+</tr>
+
+<td>4層目材質比重</td>
+<td><select name="goods4" onChange="keisan()">
+<option value="0">区分を選択してください</option>
+<option value="1.38">PET系(1.38)</option>
+<option value="0.9">OPP系(0.9)</option>
+<option value="1.13">ナイロン系(1.13)</option>
+<option value="0.89">CPP系(0.89)</option>
+<option value="0.92">PE系(0.92)</option>
+<option value="2.7">アルミ泊(2.7)</option>
+<option value="1.1">ビニロン系(1.1)</option>
+<option value="1.0">純白ﾛｰﾙ(厚みにg/㎡入力)(1.0)</option>
+</select></td>
+</tr>
+<tr>
+<td>4層目厚み(μ)</td>
+<td><input type="id" class="box" name="th_4" onChange="keisan()"></td>
+<td>μ</td>
+<td>補足</td>
+<td alig="right"><strong>4層目重量(ピッチ1mあたり)</strong></td>
+<td><output type="text" name="ft4" size="8" value="0"></td>
+<td>g</td>
+</tr>
+
+<td>5層目材質比重</td>
+<td><select name="goods5" onChange="keisan()">
+<option value="0">区分を選択してください</option>
+<option value="1.38">PET系(1.38)</option>
+<option value="0.9">OPP系(0.9)</option>
+<option value="1.13">ナイロン系(1.13)</option>
+<option value="0.89">CPP系(0.89)</option>
+<option value="0.92">PE系(0.92)</option>
+<option value="2.7">アルミ泊(2.7)</option>
+<option value="1.1">ビニロン系(1.1)</option>
+<option value="1.0">純白ﾛｰﾙ(厚みにg/㎡入力)(1.0)</option>
+</select></td>
+</tr>
+<tr>
+<td>5層目厚み(μ)</td>
+<td><input type="id" class="box" name="th_5" onChange="keisan()"></td>
+<td>μ</td>
+<td>補足</td>
+<td alig="right"><strong>5層目重量(ピッチ1mあたり)</strong></td>
+<td><output type="text" name="ft5" size="8" value="0"></td>
+<td>g</td>
+</tr>
+</br>
+</br>
+<td alig="right"><strong>全層目合計重量(ピッチ1mあたり)</strong></td>
+<td><output type="text" name="ft6" size="8" value="0"></td>
+<td>g</td>
+</tr>
+<tr><td>・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・</td></tr>
+<tr><td>・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・</td></tr>
+<tr>
+<td>製品ピッチ</td>
+<td><input type="id" class="box" name="th_6" onChange="keisan()"></td>
+<td>mm</td>
+</tr>
+<tr>
+<td alig="right"><strong>製品あたりの重量(g)</strong></td>
+<td><output type="text" name="ft7" size="8" value="0"></td>
+<td>g</td>
+</tr>
+
+
+
+</table>
+
+</form>
+
+</body>
+</html>
